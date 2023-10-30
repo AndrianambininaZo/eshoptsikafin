@@ -1,0 +1,44 @@
+<div class="container__creer">    
+    <main>
+        <header>
+            <span>Formulaire de creation produit</span>
+        </header>
+        <form [formGroup]="formProduit" (ngSubmit)="handleProduit()" class="row">
+            <div class="form-group col-md-6">
+                <label for="label">Nom:</label>
+                <input type="text" formControlName="nom" class="form-control" placeholder="Nom de produit">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="label">Description:</label>
+                <input type="text" formControlName="description" class="form-control" placeholder="Descriptionde produit">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="label">Prix:</label>
+                <input type="number" formControlName="prix" class="form-control" placeholder="Prix de produit">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="label">Stock:</label>
+                <input type="number" formControlName="stock" class="form-control" placeholder="Stock de produit">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="label">Categorie:</label>
+                <select formControlName="categorieId" class="form-control" id="">
+                    <option value=""></option>
+                    <option *ngFor="let item of listCategorie" [value]="item.id">{{item.nom +"/"+ item.genre}}</option>
+                </select>
+            </div>
+            <div class="form-group inputImage col-md-6" *ngIf="!imageUrl">
+                <label for="label">Images</label>
+                <input type="file" (change)="onFileSelected($event)" formControlName="image" class="form-control" placeholder="Nom de produit">
+            </div>
+            <div class="form-group monImage col-md-6" *ngIf="imageUrl" >
+                <img class="col-md-6" [src]="imageUrl" height="50px"  />
+            </div>
+            
+            <div class="button">
+                <button type="submit" [disabled]="formProduit.invalid" class="btn btn-sm btn-primary">Enregistrer</button>
+                <a (click)="annuller()" class="btn btn-sm btn-danger">Annuller</a>
+            </div>
+        </form>
+    </main>
+</div>

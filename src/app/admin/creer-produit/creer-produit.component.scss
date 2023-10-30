@@ -1,0 +1,45 @@
+.container__creer{
+    width: 100%;
+    height: calc(100vh - 100px);  
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    main{
+        width: 80%;
+        height: max-content;
+        background-color: white;
+        border-radius: 10px;
+        header{
+            margin-top: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            span{
+                font-size: calc(22px + 0.3vw);
+            }
+        }
+        form{
+            margin: 1rem;
+            .button{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 1rem;
+                button,a{
+                    width: calc(150px + 0.5vw);
+                    font-weight: bold;
+                }               
+                
+            }
+            .inputImage{
+                input{
+                    border: none;
+                }
+            }
+            .monImage{
+                margin-top: .5rem;
+            }
+        }
+    }
+}

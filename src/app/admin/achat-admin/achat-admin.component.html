@@ -1,0 +1,36 @@
+<div class="container__achat">
+    <header>
+        <span>Listes commades</span>
+    </header>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Numero commande</th>
+                    <th>Client</th>
+                    <th>Teleohone</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listCommande | paginate: { itemsPerPage: 7, currentPage: p } ; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.id}}</td>
+                    <td>{{item.client?.nom}}</td>
+                    <td>{{item.client?.telephone}}</td>
+                    <td>{{item.date | date: 'dd-MM-yyyy'}}</td>
+                    <td>
+                        <button title="voir" (click)="voirDetail(item.id!)" class="btn btn-sm btn-success">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="listCommande && listCommande.length > 7">
+            <pagination-controls (pageChange)="p = $event" 
+            previousLabel="Precedent"
+            nextLabel="Suivant"></pagination-controls>
+        </div>
+    </div>
+</div>

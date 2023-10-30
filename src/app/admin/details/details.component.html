@@ -1,0 +1,38 @@
+<div class="container__detail">
+    <header>
+        <span>Details de commande numero <small>{{idModule}}</small></span>
+        <span>somme de <small>{{sommeMontant}}</small> Ar</span>
+    </header>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom client</th>
+                <th>Produit</th>
+                <th>Stock actuel</th>
+                <th>Prix</th>
+                <th>Quatite commande</th>
+                <th>SousTotal</th>
+                <th *ngIf="commande?.validation == 0">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listeVente; let i=index">
+                <td>{{i + 1}}</td>
+                <td>{{item.commande?.client?.nom}}</td>
+                <td >{{item.ligneCommande?.produit?.nom}}</td>
+                <td class="text-danger" *ngIf="item.ligneCommande?.produit?.stock! <=item.ligneCommande?.quantite!">{{item.ligneCommande?.produit?.stock}} insuffisant</td>
+                <td *ngIf="item.ligneCommande?.produit?.stock! > item.ligneCommande?.quantite!">{{item.ligneCommande?.produit?.stock}}</td>
+                <td>{{item.ligneCommande?.prixUnitaire}}</td>
+                <td>{{item.ligneCommande?.quantite}}</td>
+                <td>{{item.ligneCommande?.sousTotal}}</td>
+                <td *ngIf="commande?.validation == 0">
+                    <button  (click)="deleteVente(item.id!)" class="btn btn-danger btn-sm">Annuller</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="button">
+        <button  *ngIf="commande?.validation == 0" (click)="validateVente()" class="btn btn-sm btn-primary">Valider</button>
+    </div>
+</div>

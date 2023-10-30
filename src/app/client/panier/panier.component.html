@@ -1,0 +1,35 @@
+<div class="panier__container">
+    <header>
+        <div class="header__title">
+            <span>Votre panier</span>
+        </div>
+    </header>
+    <main>
+        <div *ngIf="isConnecter" class="isConnecter">
+            <p>Conneter votre compte si vous pouvez faire achat de produit</p>
+            <a routerLink="/connexion" class="btn btn-secondary">Connecter</a>
+        </div>
+        <div class="__title">
+            <span>Votre panier contient {{listPanier.length}} articles</span>
+        </div>
+        <div class="list__panier">
+            <div class="__produit" *ngFor="let item of listPanier">
+                <div class="p">
+                    <span class="span">{{item.nom}}</span>
+                    <span class="span">{{item.prixUnitaire}} Ar</span>
+                    <div class="__quatite">
+                        <button [disabled]="item.quantite! <= 1" class="btn btn-sm btn-secondary" (click)="handleMoins(item.id!)">-</button>
+                        <span >{{item.quantite!}}</span>
+                        <button class="btn btn-sm btn-secondary" (click)="handlePlus(item.id!)">+</button>
+                    </div>
+                    <span class="span">{{item.sousTotal}} AR</span>
+                    <span  class="spanX"><small (click)="removeProduit(item.id!)">X</small></span>
+                </div>
+                
+            </div>
+            <div class="button" *ngIf="listPanier && listPanier.length>0">
+                <button (click)="validationAchat()" class="btn btn-sm btn-primary">Valider</button>
+            </div>           
+        </div>
+    </main>
+</div>

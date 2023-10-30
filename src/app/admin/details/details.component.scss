@@ -1,0 +1,22 @@
+.container__detail{
+    margin: 1rem;
+    header{
+        display: flex;
+        gap: 1rem;
+        span{
+            font-size: calc(18px + 0.2vw);
+            small{
+                font-weight: bold;
+            }
+        }
+    }
+    .button{
+        width: 100%;
+        button{
+            float: right;
+            width: calc(200px + 0.2vw);
+            font-weight: bold;
+        }
+    }
+    
+}

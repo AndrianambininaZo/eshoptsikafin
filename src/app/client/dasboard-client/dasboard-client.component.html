@@ -1,0 +1,71 @@
+<div class="container__dasboard__client">
+  <div class="carousel">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of images">
+        <ng-template carouselSlide >
+          <div class="ng__tamplate">
+            <div class="info">
+              <span class="info__title">{{slide.nom}}</span>
+              <span class="info__categorie">{{slide.genre}}</span>           
+            </div>          
+            <img class="img" [src]="slide.img" alt="Image" title="side__bar">
+          </div>          
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+  <div class="new__produit">
+    <div class="new__title">
+      <div class="new__tire"></div>
+      <div class="new__span">Nouveau produit</div>
+      <div class="new__tire"></div>
+    </div> 
+    <div class="new__list">
+      <div *ngFor="let item of listNouveauProduit" class="card__body">
+        <div class="card__title">
+          <span>New</span>
+        </div>          
+        <div class="images">
+            <img [src]="imageUrl +item.id" alt="Image">
+        </div>  
+        <div class="add_cart">  
+          <div class="card__info">
+            <span class="__nom">{{item.nom}}</span>
+            <span class="__genre">{{item.categorie!.genre | titlecase}}</span>
+          </div>       
+          <div class="car__footer">
+            <span class="__prix">{{item.prix}}</span>
+            <a (click)="addToCart(item)" class="btn btn-sm btn-secondary">Add to cart</a>
+          </div>
+        </div>        
+    </div>       
+    </div>   
+  </div>
+  <div class="new__produit">
+    <div class="new__title promo">
+      <div class="new__tire"></div>
+      <div class="new__span">Promo</div>
+      <div class="new__tire"></div>
+    </div> 
+    <div class="new__list">
+      <div *ngFor="let item of listPromo" class="card__body">
+        <div class="card__title__promo">
+          <span>Promo</span>
+        </div>          
+        <div class="images">
+            <img [src]="imageUrl +item.id" alt="Image">
+        </div>  
+        <div class="add_cart">  
+          <div class="card__info">
+            <span class="__nom">{{item.nom}}</span>
+            <span class="__genre">{{item.categorie!.genre | titlecase}}</span>
+          </div>       
+          <div class="car__footer">
+            <span class="__prix">{{item.prix}}</span>
+            <a (click)="addToCart(item)" class="btn btn-sm btn-secondary">Add to cart</a>
+          </div>
+        </div>        
+    </div>       
+    </div>   
+  </div>   
+</div>

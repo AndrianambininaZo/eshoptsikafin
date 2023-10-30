@@ -1,0 +1,63 @@
+<div class="container__produit">
+    <header>
+        <div class="header__left">
+            <div class="span">
+                <span>Listes des tous produit</span>
+            </div>
+        </div>
+        <div>
+            <a routerLink="/eshop_admin/creer_produit" class="btn btn-sm btn-success">Nouveau</a>
+        </div>
+    </header>
+    <main>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Stock</th>
+                    <th>Slide</th>
+                    <th>Promotion</th>
+                    <th>New</th>
+                    <th>Categorie</th> 
+                    <th>Genre</th>                   
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listProduit | paginate: { itemsPerPage: 7, currentPage: p }; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>
+                        <img style="border-radius: 5px;" width="50px" height="20px" [src]="imageUrl+item.id" alt="" srcset="">
+                    </td>
+                    <td >{{item.nom}}</td>
+                    <td>{{item.prix}}</td>
+                    <td>{{item.stock}}</td>
+                    <td>
+                        <i (click)="modifierSlider(item.id!)" *ngIf="item.slider==0"  class="bi bi-toggle-off"></i>
+                        <i (click)="modifierSlider(item.id!)" *ngIf="item.slider==1" class="bi bi-toggle-on"></i>
+                    </td>
+                    <td>
+                        <i (click)="modifierPromo(item.id!)" *ngIf="item.newPromo==0" class="bi bi-toggle-off"></i>
+                        <i (click)="modifierPromo(item.id!)" *ngIf="item.newPromo==1" class="bi bi-toggle-on"></i></td>  
+                    <td>
+                        <i (click)="modifierNewProd(item.id!)" *ngIf="item.newProd==0" class="bi bi-toggle-off"></i>
+                        <i (click)="modifierNewProd(item.id!)" *ngIf="item.newProd==1" class="bi bi-toggle-on"></i></td>
+                    <td>{{item.categorie!.nom}}</td> 
+                    <td>{{item.categorie!.genre | titlecase}}</td>
+                    <td>
+                        <button (click)="modifierProduit(item.id!)" type="submit" class="btn text-success"><i class="bi bi-pencil-square"></i></button>
+                        <a (click)="deleteProduct(item.id!)"  class="btn text-danger "><i class="bi bi-trash a-btn"></i></a>                        
+                    </td>                    
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="listProduit && listProduit.length > 7">
+            <pagination-controls (pageChange)="p = $event" 
+            previousLabel="Precedent"
+            nextLabel="Suivant"></pagination-controls>
+        </div>
+    </main>
+</div>

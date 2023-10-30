@@ -1,0 +1,69 @@
+.container__dasboard{
+    width: 100%;
+    padding: 1rem;
+    .isconnected{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        span{
+            font-size: calc(20px + 0.3vw);
+        }
+        p{
+            font-size: calc(16px + 0.3vw);
+        }
+    }    
+    header{
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        
+        .isHeader{
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px 3px gray;
+            display: flex;
+            width: 100%;
+            height: 30vh;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            &:hover{
+                background-color: rgb(189, 176, 176);
+            }
+            p{
+                display: flex;
+                justify-content: center;
+                box-shadow: 0px 3px 0px 0px gray;
+                width: 100%;
+                padding-top: 1rem;
+                padding-bottom: .7rem;
+                font-size: calc(20px + 0.2vw);
+            }
+            .incon{
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                span{
+                    font-size: calc(24px + 0.6vw);
+
+                }
+                i{
+                    font-size: calc(24px + 0.6vw);
+                }
+
+            }
+        }
+
+    }
+    .main__table{
+        margin-top: 1rem;
+        span{
+            font-size: calc(16px + 0.2vw);
+        }
+        table{
+            border-radius: 10px;
+        }
+    }
+}

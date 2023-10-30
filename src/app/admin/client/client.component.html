@@ -1,0 +1,28 @@
+<div class="client">
+    <span>Liste de client</span>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom | prenom</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listClient | paginate: { itemsPerPage: 7, currentPage: p } ; ;let i=index">
+                <td>{{i + 1}}</td>
+                <td>{{item.nom +" "+item.prenom}}</td>
+                <td>{{item.telephone}}</td>
+                <td>{{item.adresse}}</td>
+                <td>{{item.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="listClient && listClient.length > 7">
+        <pagination-controls (pageChange)="p = $event" 
+        previousLabel="Precedent"
+        nextLabel="Suivant"></pagination-controls>
+    </div>
+</div>

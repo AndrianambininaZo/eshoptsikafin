@@ -1,0 +1,58 @@
+<div class="container container__categoerie">
+    <div class="row__table">
+        <div class="__header">
+            <span>Liste de categorie</span>
+            <button (click)="isShowForm()" class="btn btn-sm btn-success">Nouveau</button>
+        </div>
+        <table class="col-md-8 m-auto mt-1 table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Genre</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listCategorie | paginate: { itemsPerPage: 7, currentPage: p } ; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.nom}}</td>
+                    <td>{{item.genre | titlecase}}</td>
+                    <td>
+                        <button (click)="deleteCategoerie(item.id!)" title="supprimer" class="btn text-danger"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="listCategorie && listCategorie.length > 7">
+            <pagination-controls (pageChange)="p = $event" 
+            previousLabel="Precedent"
+            nextLabel="Suivant"></pagination-controls>
+        </div>
+        <div *ngIf="isForm" class="form__categorie">
+            <form [formGroup]="formCategorie" (ngSubmit)="handleCategorie()" class="col-md-6" >
+                <div class="header">
+                    <span>Ajout nouveau categorie</span>
+                </div>
+                <div class="form-group">
+                    <label for="">Nom categorie:</label>
+                    <input formControlName="nom" class="form-control" type="text" name="" id="" placeholder="Nom categorie">               
+                </div>
+                <div class="form-group">
+                    <label for="">Genre:</label>
+                    <select formControlName="genre" class="form-select" name="" id="">
+                        <option value=""></option>
+                        <option value="femme">Femme</option>
+                        <option value="homme">Homme</option>
+                        <option value="enfant">Enfant</option>
+                        <option value="sport">Sport</option>
+                    </select>             
+                </div>
+                <div class="button">
+                    <button type="submit" class="btn btn-sm btn-primary">Enregistrer</button>
+                    <a (click)="isFermeForm()" class="btn btn-sm btn-danger">Annuller</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

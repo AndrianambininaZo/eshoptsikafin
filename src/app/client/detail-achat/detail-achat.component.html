@@ -1,0 +1,25 @@
+<div class="container__detail">
+    <header>
+        <span>Details de commande numero </span>
+    </header>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Quatite</th>
+                <th>SousTotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listeVente; let i=index">
+                <th>{{i + 1}}</th>
+                <th>{{item.ligneCommande?.produit?.nom}}</th>
+                <th>{{item.ligneCommande?.prixUnitaire}}</th>
+                <th>{{item.ligneCommande?.quantite}}</th>
+                <th>{{item.ligneCommande?.sousTotal}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

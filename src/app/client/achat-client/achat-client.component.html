@@ -1,0 +1,30 @@
+<div class="container__achat">
+    <header>
+        <span>Listes commades</span>
+    </header>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>N commande</th>                    
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listCommande; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.id}}</td>
+                    <td *ngIf="item.validation ==0" style="color: wheat;">En cours</td>
+                    <td *ngIf="item.validation ==1" style="color: seagreen;">Ok</td>
+                    <td>{{item.date | date: 'dd-MM-yyyy'}}</td>
+                    <td>
+                        <button title="voir" (click)="voirDetail(item.id!)" class="btn btn-sm btn-success">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

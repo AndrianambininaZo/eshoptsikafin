@@ -1,0 +1,50 @@
+<div class="container__connexion">
+    <main>
+        <div class="form__connexion" *ngIf="isCompte">
+            <div class="form_con">
+                <div class="span__title">
+                    <span>Se connecter</span>
+                </div>
+                <div class="resaeau__sociaux">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="bi bi-globe"></i></a>
+                    <a href="https://www.linkedin.com" target="_top"><i class="bi bi-linkedin"></i></a>                                      
+                </div>
+                <form [formGroup]="formConnection" (ngSubmit)="handleConnexion()">
+                    <input type="email" formControlName="email" class="form-control"  name="" id="" placeholder="email">
+                    <input type="password" formControlName="password" class="form-control"  placeholder="password">
+                    <small class="text-danger" *ngIf="InvalidConnexion">{{InvalidConnexion}}</small>                    
+                    <button type="submit" class="btn btn-sm btn-primary">Se conecter</button>
+                </form>
+            </div>            
+            <div class="invt__inscription">
+                <span >Bonjour, Client</span> 
+                <p>Inscrivez-vous avec vos coordonnées pour utiliser
+                    toutes les fonctionnalités du site</p>
+                <button (click)="creerCompte()" class="btn btn-sm btn-success">Créer nouveau compte</button>          
+            </div>
+        </div>
+        <form [formGroup]="formInscription" *ngIf="!isCompte" class="form__inscription" (ngSubmit)="handleInscription()">
+            <div class="title__inscr">
+                <span>Formulaire d'inscription</span>
+            </div>
+            <div class="from-group">
+                <div class="is__from__group">
+                    <input formControlName="nom" type="text" class="form-control" name="" id="" placeholder="Nom">
+                    <input formControlName="prenom" type="text" class="form-control" placeholder="Prenom"> 
+                    <input formControlName="adresse" type="text" class="form-control" placeholder="Adresse">           
+                </div>
+                <div class="is__from__group">
+                    <input formControlName="telephone" type="text" class="form-control" placeholder="Telephone"> 
+                    <input formControlName="email" type="text" class="form-control" name="" id="" placeholder="email">
+                    <input formControlName="password" type="text" class="form-control" placeholder="password">           
+                </div>
+            </div>
+            <div class="button">
+                <button type="submit" [disabled]="formInscription.invalid" class="btn btn-primary btn-sm">Enregistrer</button>
+                <a (click)="annuller()"  class="btn btn-danger btn-sm">Annuller</a>
+            </div>           
+        </form>      
+    </main>
+</div>

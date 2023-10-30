@@ -1,0 +1,72 @@
+<div class="container__client">
+    <header>
+        <div class="main__header container">
+             <div class="contact">
+                 <div class="telephone">
+                     <i class="bi bi-telephone"></i><span> +261 34 00 000 00</span>
+                 </div>
+                 <div class="email">
+                     <i class="bi bi-envelope"></i><span> eshoptsik@gmail.com</span>
+                 </div>
+             </div> 
+             <div class="resaeau__sociaux">
+                 <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                 <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                 <a href="https://twitter.com" target="_blank"><i class="bi bi-globe"></i></a>
+                 <a href="https://www.linkedin.com" target="_top"><i class="bi bi-linkedin"></i></a>                                      
+             </div>
+        </div>  
+    </header>
+    <nav class="container">
+         <div class="side__bar">
+             <div class="side__left"> 
+                 <a class="__home" routerLink="/"><img src="./../../../assets/images/logoeshop.png" alt="">  <span>  E-</span>ShopTsika</a>
+                 <a routerLink="/femme">Femme</a>
+                 <a routerLink="/homme">Homme</a>  
+                 <a routerLink="/enfant">Enfant</a>
+                 <a routerLink="/sport">Sport</a> 
+                 <a *ngIf="serviceAuth.authentication" routerLink="/achat" >Achat</a>        
+             </div>
+             <div class="side__rigth">                
+                 <a routerLink="/panier" *ngIf="nombreProduitsDansPanier==0" class="a__panierr"><i class="bi bi-cart"></i><small>{{nombreInitPanie}}</small> Panier</a>
+                 <a routerLink="/panier"  *ngIf="nombreProduitsDansPanier!=0" class="a__panierr"><i class="bi bi-cart"></i><small>{{nombreProduitsDansPanier}}</small>Panier</a>
+                 <a *ngIf="!serviceAuth.authentication" routerLink="/connexion" class="a__connexion"><i class="bi bi-box-arrow-in-left"></i> Connexion</a>
+                 <a (click)="deconnexion()" *ngIf="serviceAuth.authentication" class="a__connexion"><i class="bi bi-box-arrow-in-right"></i> Deconnexion</a>
+             </div>
+         </div> 
+         <div> 
+         </div>  
+    </nav>
+    <main class="container container__main">
+        <router-outlet></router-outlet>                
+    </main>
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 ">
+                    <h3>À propos de nous</h3>
+                    <p>
+                        Explorez notre vaste sélection de produits de qualité,
+                        trouvez les meilleures offres et faites des achats en toute confiance. 
+                        Votre satisfaction est notre priorité
+                    </p>
+                </div>
+                <div class="col-md-4 nos__produit">
+                    <h3>Nos Produits</h3>
+                    <div class="ul">
+                        <a routerLink="/femme">Femme</a>
+                        <a routerLink="/homme">Homme</a>  
+                        <a routerLink="/enfant">Enfant</a>
+                        <a routerLink="/sport">Sport</a> 
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Contactez-nous</h3>
+                    <p>Adresse : Antanimena 101</p>
+                    <p>Téléphone : +261 34 00 000 00</p>
+                    <p>Email : eshoptsik@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+ </div>

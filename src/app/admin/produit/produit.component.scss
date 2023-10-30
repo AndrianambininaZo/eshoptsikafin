@@ -1,0 +1,35 @@
+.container__produit{
+    margin: .5rem;
+    header{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .7rem;
+        .header__left{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            gap: 1.5rem;
+            .span{
+            }
+            input{
+                width: calc(200px + 0.3vw);
+            }
+
+        }
+    }
+    main{
+        table{
+            i{
+                cursor: pointer;
+                font-size: 20px;
+                color: green;
+                
+            }
+            .a-btn{
+                color: red;
+            }
+        }
+        
+        
+    }
+}

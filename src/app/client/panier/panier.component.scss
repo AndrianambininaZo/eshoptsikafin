@@ -1,0 +1,89 @@
+.panier__container{
+    min-height: 60vh;
+    header{
+        width: 100%;
+        .header__title{
+            display: flex;
+            justify-content: center;
+            span{
+                font-size: calc(20px + 0.2vw);
+            }
+        }
+    }
+    main{
+        position: relative;
+        .isConnecter{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            width: 100%;
+            box-shadow: 3px 3px 3px 3px gray;
+            height: 20vh;
+            z-index: 4;
+            background: ghostwhite;
+            p{
+                font-size: calc(20px - 0.2vw);
+            }
+        }
+        .__title{
+            span{
+                font-size: 20px;  
+                font-weight:600;              
+            }
+        }
+        .list__panier{
+            
+            .__produit{
+                width: 100%;
+                margin-top: .5rem;
+                box-shadow: 3px 3px 3px 3px gray;
+                border-radius: 5px;
+                .p{
+                    display: flex ;
+                    .span{
+                        flex: 1;
+                        padding-left: .5rem;
+                    }
+                    .spanX{
+                        flex: 1;
+                        display: flex;
+                        justify-content: right;
+                        padding-right: .5rem;
+                        small{
+                            
+                        cursor: pointer;
+                        }
+                    }
+                    .__quatite{
+                        flex: 1;
+                        display: flex;
+                        gap: .5rem;
+                        justify-content: center;
+                        .spanAdd{
+                            background-color: gray;
+                            border-radius: 50%;
+                            padding: .3rem;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                
+            }
+            .button{
+                width: 100%;
+                display: flex;
+                justify-content: right;
+                margin-top: .5rem;
+                button{
+                    padding-left: .5rem;
+                    padding-right: .5rem;
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+
+}

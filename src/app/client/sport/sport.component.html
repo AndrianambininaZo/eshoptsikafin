@@ -1,0 +1,46 @@
+<div class="container__femme">
+    <header>
+         <div class="__isTitle">
+             <div class="mon__title"><span>Mode pour sport</span></div>
+         </div> 
+    </header>    
+    <main><!--
+         <div class="categorie">
+             <div class="info__categories">
+                 <span>Categories</span>
+             </div>
+             <a href="">Robe</a>
+             <a href="">Robe</a>
+             <a href="">Robe</a>
+         </div>-->
+         <div class="is__produit">
+             <div class="is__siderbar">
+             </div>
+             <div class="new__produit"> 
+                <div class="new__list">
+                    <div *ngFor="let item of listPromo | paginate: { itemsPerPage: 7, currentPage: p }" class="card__body">          
+                    <div class="images">
+                        <img [src]="imageUrl +item.id" alt="Image">
+                    </div>  
+                    <div class="add_cart">  
+                        <div class="card__info">
+                            <span class="__nom">{{item.nom}}</span>
+                            <span class="__genre">{{item.categorie!.genre | titlecase}}</span>
+                        </div>       
+                        <div class="car__footer">
+                            <span class="__prix">{{item.prix}}</span>
+                            <a (click)="addToCart(item)" class="btn btn-sm btn-secondary">Add to cart</a>
+                        </div>
+                    </div>        
+                    </div>       
+                </div>   
+                <div *ngIf="listPromo && listPromo.length > 4">
+                    <pagination-controls (pageChange)="p = $event" 
+                    previousLabel="Precedent"
+                    nextLabel="Suivant"></pagination-controls>
+                </div>
+            </div> 
+         </div> 
+    </main>  
+ </div>
+ 

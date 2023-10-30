@@ -1,0 +1,54 @@
+<div class="container__dasboard">
+    <div *ngIf="isConneted==false" class="isconnected">
+        <span>403</span>
+        <p>Vous etes pas connecter e-shope tsika. Faire une connection <a routerLink="/connexion__eshoptsika">ici</a></p>
+    </div>
+    <header *ngIf="isConneted==true">
+        <div class="isHeader" routerLink="/eshop_admin/vente__valide">
+            <p>Vente</p>
+            <div class="incon">
+                <span>{{nombreVente}}</span>
+                <i class="bi bi-basket3"></i>
+            </div>
+        </div>
+        <div class="isHeader" routerLink="/eshop_admin/client">
+            <p>Client</p>
+            <div class="incon">
+                <span>{{nombreUtilisateur}}</span>
+                <i class="bi bi-person-check"></i>
+            </div>
+        </div>
+        <div class="isHeader" routerLink="/eshop_admin/vente">
+            <p>Achat</p>
+            <div class="incon">
+                <span>{{nombreCommande}}</span>
+                <i class="bi bi-minecart"></i>
+            </div>
+        </div>
+    </header>
+    <div class="main__table">
+        <span>Liste 5 derniere commande</span>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Numero commande</th>
+                    <th>Client</th>
+                    <th>Telephone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listCommande; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.id}}</td>
+                    <td>{{item.client?.nom}}</td>
+                    <td>{{item.client?.telephone}}</td>
+                    <td>
+                        <button (click)="voirDetail(item.id!)" class="btn btn-sm btn-success">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>   
+</div>
